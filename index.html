@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pickleball court booking demo">
+  <title>Pickleball Court Booking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top"><span class="brand-mark">P</span><span>Pickleball Courts</span></a>
+    <nav><button data-scroll="reserve">Book the court</button><button id="show-bookings">My bookings</button></nav>
+    <button class="lime-button" data-scroll="reserve">Find a time</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">COURT RESERVATIONS</span>
+        <h1>Book a court<br>in a few steps.</h1>
+        <p>Choose a date and time, add your details, and submit your reservation request online.</p>
+        <button class="lime-button" data-scroll="reserve">View available times</button>
+      </div>
+      <div class="hero-facts"><span><b>OPERATING HOURS</b>7:00 AM – 3:00 AM</span><span><b>COURT RATE</b><i id="hero-rate">₱350 / hour</i></span></div>
+    </section>
+
+    <section class="booking-section" id="reserve">
+      <div class="section-intro"><div><span class="eyebrow dark">AVAILABILITY</span><h2>Choose a date<br>and time.</h2></div><p>Select one or more consecutive hours. Overnight slots are shown after 11:00 PM.</p></div>
+      <div class="booking-layout">
+        <section class="availability-panel">
+          <div class="panel-head"><strong>01 &nbsp; CHOOSE A DATE</strong><div class="legend"><span>● Available</span><span>● Booked</span><span>● Pending</span><span>● Unavailable</span></div></div>
+          <div class="date-row" id="date-row"></div>
+          <div class="calendar-picker"><label>Check another date <input id="date-picker" type="date"></label></div>
+          <div class="slot-heading"><strong>02 &nbsp; SELECT A COURT AND CONSECUTIVE HOURS</strong><span id="schedule-date"></span></div>
+          <p class="next-day-note"><b>Note:</b> Slots from <b>12:00 AM onwards</b> are on the following day.</p>
+          <div id="preserved-note" class="preserved-note hidden"></div>
+          <div class="slot-grid" id="slot-grid"></div>
+        </section>
+
+        <aside class="summary-card">
+          <span>YOUR BOOKING</span><h3 id="summary-title">Choose your hours.</h3>
+          <dl>
+            <div><dt>Date</dt><dd id="summary-date">—</dd></div>
+            <div><dt>Time</dt><dd id="summary-time">No hours selected</dd></div>
+            <div><dt>Court</dt><dd id="summary-court">Pickleball Court 01</dd></div>
+            <div><dt>Duration</dt><dd id="summary-duration">0 hours</dd></div>
+            <div><dt>Hourly rate</dt><dd id="summary-rate">₱350 / hour</dd></div>
+            <div class="total"><dt>Total</dt><dd id="summary-total">₱0</dd></div>
+          </dl>
+          <button id="continue-booking" class="lime-button full" disabled>Continue</button>
+          <small>Bookings remain pending until payment proof is confirmed.</small>
+        </aside>
+      </div>
+    </section>
+
+    <section class="my-bookings hidden" id="bookings">
+      <span class="eyebrow dark">MANAGE MY BOOKING</span><h2>Find your reservation.</h2><p>Enter the 11-digit mobile number used when the booking was submitted.</p>
+      <form id="lookup-form" class="lookup-card"><label>Mobile number<input id="lookup-mobile" type="tel" inputmode="numeric" maxlength="11" pattern="[0-9]{11}" placeholder="09171234567" required></label><button class="lime-button">Look up</button></form>
+      <p id="lookup-message"></p><div id="lookup-results" class="booking-results"></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#top"><span class="brand-mark">P</span><span>Pickleball Courts</span></a><p>A simple online court reservation experience.</p><nav><button data-scroll="reserve">Book a court</button><a href="#top">Location</a><button id="footer-bookings">My bookings</button><a href="admin.html">Admin</a></nav></footer>
+
+  <div class="modal-backdrop hidden" id="booking-modal">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="close-modal" aria-label="Close">×</button>
+      <div class="steps"><span id="step-1-label">1 Details</span><span id="step-2-label">2 Payment</span><span id="step-3-label">3 Received</span></div>
+      <div id="checkout-content"></div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

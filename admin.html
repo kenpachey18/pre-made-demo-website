@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pickleball Booking Admin</title><link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+  <main id="admin-login" class="admin-login-shell">
+    <section class="admin-login-card">
+      <a class="brand" href="index.html"><span class="brand-mark">P</span><span>Pickleball Courts</span></a><span class="eyebrow dark">ADMIN PORTAL</span><h1>Welcome back.</h1><p>Sign in to manage bookings, court availability, and pricing.</p>
+      <form id="login-form"><label>Username<input id="admin-username" value="admin" autocomplete="username" required></label><label>Password<input id="admin-password" type="password" autocomplete="current-password" required></label><p id="login-error" class="form-error hidden"></p><button class="lime-button full">Sign in</button></form>
+      <aside class="demo-box"><b>DEMO LOGIN</b><span>Username: <strong>admin</strong></span><span>Initial password: <strong>CourtAdmin2026!</strong></span><small>The initial password stops working after it is changed in Settings.</small></aside>
+      <a class="back-link" href="index.html">← Back to customer site</a>
+    </section>
+  </main>
+
+  <main id="admin-app" class="admin-shell hidden">
+    <aside class="admin-sidebar"><a class="brand" href="index.html"><span class="brand-mark">P</span><span>COURTS</span></a><nav id="admin-nav"></nav><div class="admin-user"><span>PA</span><div><b>Portal Admin</b><small>@admin</small></div></div></aside>
+    <section class="admin-main"><header class="admin-topbar"><a href="index.html">← Customer site</a><button id="logout">Sign out</button></header><div id="admin-message" class="admin-message hidden"></div><div id="admin-content"></div></section>
+  </main>
+  <div class="modal-backdrop hidden" id="detail-modal"><section class="modal wide"><button class="modal-close" id="close-detail">×</button><div id="detail-content"></div></section></div>
+  <script src="admin.js"></script>
+</body>
+</html>
